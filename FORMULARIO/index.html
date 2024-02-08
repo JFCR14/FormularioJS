@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Formulario multi-paso</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+</head>
+<body>
+
+<div class="container col-3 p-2">
+    <div class="row justify-content-center">
+        <div class="shadow p-3 mb-5 bg-body rounded">
+            <form id="formRegistro">
+
+                <div class="paso" data-paso="1">
+                    <h2>Paso 1</h2>
+                    <div class="mb-3">
+                        <label for="nombreApellido" class="form-label">Nombre y Apellidos</label>
+                        <input type="text" class="form-control" id="nombreApellido" name="nombreApellido" placeholder="Apellido1 Apellido2 Nombre">
+                    </div>
+                    <div class="mb-3">
+                        <label for="correo" class="form-label">Correo</label>
+                        <input type="text" class="form-control" id="correo" name="correo" placeholder="email@gmail.com">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="telefono" class="form-label">Número de Teléfono</label>
+                            <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="123456789">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="direccion" class="form-label">Dirección</label>
+                            <input type="text" class="form-control" id="direccion" name="direccion" placeholder="C/nombreCalle">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="dni" class="form-label">DNI</label>
+                            <input type="text" class="form-control" id="dni" name="dni" placeholder="12345678A">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                            <input type="text" class="form-control" id="fechaNacimiento" name="fechaNacimiento" placeholder="dd/mm/aaaa">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="sexo" class="form-label">Sexo</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="sexoHombre" name="sexo" value="Hombre">
+                            <label class="form-check-label" for="sexoHombre">Hombre</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="sexoMujer" name="sexo" value="Mujer">
+                            <label class="form-check-label" for="sexoMujer">Mujer</label>
+                        </div>
+                    </div>
+                    <div class="d-flex p-2 justify-content-between">
+                        <button class="btn btn-outline-primary btn-sm btn-anterior disabled">Anterior</button>
+                        <button class="btn btn-outline-primary btn-sm btn-siguiente">Siguiente</button>
+                    </div>
+                </div>
+
+                <div class="paso" data-paso="2">
+                    <h2>Paso 2</h2>
+                    <div class="mb-3">
+                        <label for="opciones" class="form-label">Selecciona una opción</label>
+                        <select class="form-select" id="opciones" name="opciones" required>
+                            <option value="" disabled selected>Selecciona una opción</option>
+                            <option value="Estudio">Estudio</option>
+                            <option value="Trabajo">Trabajo</option>
+                            <option value="Ambos">Ambos</option>
+                        </select>
+                    </div>
+                
+                    <div id="estudioFields" class="mb-3 d-none">
+                        <label for="tipoEstudio" class="form-label">Tipo de Estudio</label>
+                        <input type="text" class="form-control" id="tipoEstudio" name="tipoEstudio" placeholder="Tipo de Estudio" required>
+                
+                        <label for="ramaEstudio" class="form-label">Rama Escogida</label>
+                        <input type="text" class="form-control" id="ramaEstudio" name="ramaEstudio" placeholder="Rama Escogida" required>
+                    </div>
+                
+                    <div id="trabajoFields" class="mb-3 d-none">
+                        <label for="tipoTrabajo" class="form-label">Tipo de Trabajo</label>
+                        <input type="text" class="form-control" id="tipoTrabajo" name="tipoTrabajo" placeholder="Tipo de Trabajo" required>
+                
+                        <label for="lugarTrabajo" class="form-label">Lugar donde Trabaja</label>
+                        <input type="text" class="form-control" id="lugarTrabajo" name="lugarTrabajo" placeholder="Lugar donde Trabaja" required>
+                    </div>
+                
+                    <div class="d-flex p-2 justify-content-between">
+                        <button class="btn btn-outline-primary btn-sm btn-anterior">Anterior</button>
+                        <button class="btn btn-outline-primary btn-sm btn-siguiente">Siguiente</button>
+                    </div>
+                </div>
+
+                <div class="paso" data-paso="3">
+                    <h2>Paso 3</h2>
+                    <div class="mb-3">
+                        <label for="hobbies" class="form-label">¿Tienes algún hobbie?</label>
+                        <input type="text" class="form-control" id="hobbies" name="hobbies">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">¿Dispones de horarios disponibles?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="horariosDisponibles" id="siHorariosDisponibles" value="Sí">
+                            <label class="form-check-label" for="siHorariosDisponibles">Sí</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="horariosDisponibles" id="noHorariosDisponibles" value="No">
+                            <label class="form-check-label" for="noHorariosDisponibles">No</label>
+                        </div>
+                    </div>
+                    <div class="mb-3" id="motivoNoHorariosDisponibles" style="display:none;">
+                        <label for="motivoNoHorarios" class="form-label">Motivo por no tener horarios disponibles</label>
+                        <input type="text" class="form-control" id="motivoNoHorarios" name="motivoNoHorarios" placeholder="Algún motivo que especificar">
+                    </div>
+                    <div class="mb-3">
+                        <label for="vivesAcompanado" class="form-label">¿Vives acompañado?</label>
+                        <select class="form-select" id="vivesAcompanado" name="vivesAcompanado">
+                            <option value="NoDecir" selected>No Decir</option>
+                            <option value="Tutor">Tutor</option>
+                            <option value="Padres">Padres</option>
+                            <option value="Solo">Solo</option>
+                            <option value="Otros">Otros</option>
+                        </select>
+                    </div>
+                    <div class="d-flex p-2 justify-content-between">
+                        <button class="btn btn-outline-primary btn-sm btn-anterior">Anterior</button>
+                        <button class="btn btn-outline-primary btn-sm btn-siguiente">Siguiente</button>
+                    </div>
+                </div>
+                
+                <div class="paso" data-paso="4">
+                    <h2>Paso 4</h2>
+                    <div class="mb-3">
+                        <label for="comentarios" class="form-label">¿Algo que comentar y que quieras añadir?</label>
+                        <textarea class="form-control" id="comentarios" name="comentarios" placeholder="Texto" rows="3"></textarea>
+                    </div>
+                    <div class="d-flex p-2 justify-content-between">
+                        <button class="btn btn-outline-primary btn-sm btn-anterior">Anterior</button>
+                        <button class="btn btn-outline-success btn-sm btn-siguiente">Finalizar</button>
+                    </div>
+                </div>
+            </form>
+
+            <div id="mensajeGracias" style="display: none;">
+                <h2>¡Gracias por enviar el formulario!</h2>
+                <p>Tu información ha sido recibida correctamente.</p>
+            </div>
+            </form>
+            <div class="">
+                <div class="row p-0 m-2 progress rounded-0">
+                    <div class="progress-bar progress-bar-striped h-100 rounded-2" role="progressbar" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
