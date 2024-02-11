@@ -17,14 +17,29 @@ document.addEventListener("DOMContentLoaded", function () {
             pasos[pasoActual - 1].style.display = "none";
             pasoActual++;
             if (pasoActual > pasos.length) {
-                // Mostrar mensaje de gracias en lugar de avanzar al siguiente paso
-                document.getElementById("mensajeGracias").style.display = "block";
+                mostrarDatosIngresados(); // Mostrar los datos ingresados en lugar del mensaje de gracias
                 formulario.style.display = "none"; // Ocultar formulario
                 return; // Salir de la función
             }
             pasos[pasoActual - 1].style.display = "block";
             actualizarBarraDeProgreso();
         }
+    }
+
+    function mostrarDatosIngresados() {
+        let mensaje = "Datos ingresados:\n";
+        const campos = document.querySelectorAll("#formRegistro input, #formRegistro select, #formRegistro textarea");
+
+        // Recorrer todos los campos del formulario
+        campos.forEach(campo => {
+            // Solo agregar al mensaje los campos que no son de tipo radio o que estén seleccionados
+            if (campo.type !== "radio" || campo.checked) {
+                mensaje += `${campo.name}: ${campo.type === "checkbox" ? campo.checked : campo.value}\n`;
+            }
+        });
+
+        // Mostrar el mensaje de alerta con los datos recogidos
+        alert(mensaje);
     }
 
     function pasoAnterior() {
